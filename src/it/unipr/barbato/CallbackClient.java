@@ -6,4 +6,7 @@ public class CallbackClient {
 	    int rnd = new Random().nextInt(array.size());
 	    return array.get(rnd);
 	}
+	public static int getRandomOffer() {
+	    return new Random().nextInt(MAX_PRICE - MIN_PRICE) + MIN_PRICE;
+	}
 }
