@@ -18,6 +18,7 @@ public interface ProductOffer extends Remote{
 
 	/**
 	 * Return server offer confirm
+	 * Return offer confirm
 	 * @return Server confirm
 	 * @throws RemoteException
 	 */

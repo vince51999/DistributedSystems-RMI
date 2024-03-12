@@ -52,12 +52,12 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	}
 
 	/**
-	 * Return SN of product
-	 * @return serial number of the product
+	 * Return sn for product
+	 * @return sn of product
 	 * @throws RemoteException
 	 */
-	public int getSN() {
+	public int getSN() throws RemoteException {
 		return this.sn;
 	}
-
+	
 }
