@@ -23,12 +23,12 @@ public class CallbackServer {
 		ProductsList productsList = new ProductsListImpl(products);
 		registry.rebind("productsList", productsList);
 		
-		Set<ProductOffer> clientList = new CopyOnWriteArraySet<>();	
-		BuyersList offersList = new BuyersListImpl(clientList);
+		Set<ProductOffer> offers = new CopyOnWriteArraySet<>();	
+		BuyersList offersList = new BuyersListImpl(offers);
 		registry.rebind("offersList", offersList);	//publishes a remote reference to that object with external name "subscribe"
 
-		while(clientList.size() < MIN_CLIENTS) {	//the server starts when at least 3 clients are subscribed
-			System.out.println("Not enough clients to open the shop: " + clientList.size() + "/" + MIN_CLIENTS);
+		while(offers.size() < MIN_CLIENTS) {	//the server starts when at least 3 clients are subscribed
+			System.out.println("Wait clients: " + offers.size() + "/" + MIN_CLIENTS);
 			Thread.sleep(2000);
 		}
 	}
