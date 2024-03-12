@@ -2,6 +2,7 @@ package it.unipr.barbato;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -24,7 +25,6 @@ public class CallbackServer {
 		Set<ProductOffer> offers = new CopyOnWriteArraySet<>();	
 		BuyersList offersList = new BuyersListImpl(offers);
 		registry.rebind("offersList", offersList);	//publishes a remote reference to that object with external name "subscribe"
-
 		while(offers.size() < MIN_CLIENTS) {	//the server starts when at least 3 clients are subscribed
 			System.out.println("Wait clients: " + offers.size() + "/" + MIN_CLIENTS);
 			Thread.sleep(2000);
@@ -56,12 +56,14 @@ public class CallbackServer {
 					}
 					Thread.sleep(300);
 				}
-				
 			}
 			catch(Exception e) {
 				continue;
 			}
 		}
+		System.out.println("All clients are disconnected. Shop close.");
+		UnicastRemoteObject.unexportObject(productsList, false);
+		UnicastRemoteObject.unexportObject(offersList, false);
 	}
 	/**
 	 * Create a list of product with price between (MAX_PRICE, MIN_PRICE) and SN between (1, num_product)
