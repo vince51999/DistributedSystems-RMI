@@ -43,7 +43,7 @@ public class CallbackServer {
 				for(ProductOffer offer: offers) {
 					int sn = offer.getSN();
 					int o = offer.getOffer();
-					if(o > 0) {
+					if(o > 0 && sn > 0) {
 						Product p = productsList.getProduct(sn);
 						
 						System.out.println("--------------------");
