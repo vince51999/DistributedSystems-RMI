@@ -36,7 +36,7 @@ public class CallbackServer {
 			for(Product product : products) {
 				((ProductImpl) product).setPrice(MAX_PRICE, MIN_PRICE);
 				System.out.println("--------------------");
-				System.out.println("SN: " + product.getSN() + " Price: " + product.getPrice());
+				System.out.println("SN: " + product.getSN() + " Price: " + product.getPrice()+ "$");
 			}
 			try {	
 				Thread.sleep(2000);
@@ -47,13 +47,13 @@ public class CallbackServer {
 						Product p = productsList.getProduct(sn);
 						
 						System.out.println("--------------------");
-						System.out.println("SN: " + sn + " Price: " + p.getPrice() + " Offer: " + o);
+						System.out.println("SN: " + sn + " Price: " + p.getPrice()+ "$" + " Offer: " + o + "$");
 						if(p.getPrice() <= o) {
 							offer.setConfirm(true);
-							System.out.println("Confirmed");
+							System.out.println("Offer accepted");
 						}else {
 							offer.setConfirm(false);
-							System.out.println("Not confirmed");
+							System.out.println("Offer rejected");
 						}
 					}
 					Thread.sleep(300);
