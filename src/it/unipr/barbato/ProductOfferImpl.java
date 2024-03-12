@@ -35,12 +35,13 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 		this.sn = sn;
 	}
 	
+
 	/**
-	 * Local method to get offer confirm
-	 * @return True if offer is confirmed, false otherwise
+	 * Set if offer is confirmed or not
+	 * @param confirmed
 	 */
-	public Boolean getConfirm() {
-		return this.confirmed;
+	public void setConfirm(Boolean confirmed) {
+		this.confirmed = confirmed;
 	}
 
 	@Override
@@ -49,8 +50,8 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	}
 
 	@Override
-	public void setConfirm(Boolean confirmed) throws RemoteException {
-		this.confirmed = confirmed;
+	public Boolean getConfirm() throws RemoteException {
+		return this.confirmed;
 	}
 
 	@Override

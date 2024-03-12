@@ -20,9 +20,9 @@ public interface ProductOffer extends Remote{
 	int getSN() throws RemoteException;
 
 	/**
-	 * This method is used to confirm client offer
-	 * @param Server offer response
+	 * Return offer confirm
+	 * @return Server confirm
 	 * @throws RemoteException
 	 */
-	void setConfirm(Boolean confirmed) throws RemoteException;
+	Boolean getConfirm() throws RemoteException;
 }
