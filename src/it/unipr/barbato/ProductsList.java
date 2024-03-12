@@ -15,10 +15,10 @@ public interface ProductsList extends Remote{
 	int size() throws RemoteException;
 	
 	/**
-	 * Return the element with index passed like parameters
-	 * @param index of element (start with 0 and end with size()-1)
+	 * Return the element with passed sn like parameters
+	 * @param sn of element
 	 * @return Return element of list
 	 * @throws RemoteException
 	 */
-	Product getProduct(int index) throws RemoteException;
+	Product getProduct(int sn) throws RemoteException;
 }
