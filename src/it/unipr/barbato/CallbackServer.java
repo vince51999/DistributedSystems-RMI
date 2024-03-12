@@ -37,7 +37,7 @@ public class CallbackServer {
 		Set<Product> products = new CopyOnWriteArraySet<>();
 		for(int i = 0; i < num_product; i++) {
 			ProductImpl product = new ProductImpl();
-			product.setSN(i);
+			product.setSN(i + 1);
 			product.setPrice(MAX_PRICE, MIN_PRICE);
 			products.add(product);
 		}
