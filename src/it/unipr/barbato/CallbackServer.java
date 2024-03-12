@@ -31,6 +31,39 @@ public class CallbackServer {
 			System.out.println("Wait clients: " + offers.size() + "/" + MIN_CLIENTS);
 			Thread.sleep(2000);
 		}
+		
+		while(offers.size() > 0) {
+			for(Product product : products) {
+				((ProductImpl) product).setPrice(MAX_PRICE, MIN_PRICE);
+				System.out.println("--------------------");
+				System.out.println("SN: " + product.getSN() + " Price: " + product.getPrice());
+			}
+			try {	
+				Thread.sleep(2000);
+				for(ProductOffer offer: offers) {
+					int sn = offer.getSN();
+					int o = offer.getOffer();
+					if(o > 0) {
+						Product p = productsList.getProduct(sn);
+						
+						System.out.println("--------------------");
+						System.out.println("SN: " + sn + " Price: " + p.getPrice() + " Offer: " + o);
+						if(p.getPrice() <= o) {
+							offer.setConfirm(true);
+							System.out.println("Confirmed");
+						}else {
+							offer.setConfirm(false);
+							System.out.println("Not confirmed");
+						}
+					}
+					Thread.sleep(300);
+				}
+				
+			}
+			catch(Exception e) {
+				continue;
+			}
+		}
 	}
 	
 	private static Set<Product> productsList(int num_product) throws Exception {
