@@ -25,7 +25,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  *
  */
 public class CallbackServer {
-	private static final int PORT = 4200;
+	private static final int PORT = 1099;
 	private static final int MIN_PRICE = 10;
 	private static final int MAX_PRICE = 200;
 	private static final int MIN_CLIENTS = 3;
@@ -36,7 +36,7 @@ public class CallbackServer {
 	public static void main(String[] args) throws Exception {
 
 		Registry registry = LocateRegistry.createRegistry(PORT);
-
+		
 		Set<Product> products = productsList(3 * 20);
 		ProductsList productsList = new ProductsListImpl(products);
 		registry.rebind("productsList", productsList);
