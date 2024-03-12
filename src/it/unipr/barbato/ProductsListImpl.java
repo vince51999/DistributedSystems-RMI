@@ -2,7 +2,6 @@ package it.unipr.barbato;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Iterator;
 import java.util.Set;
 
 public class ProductsListImpl extends UnicastRemoteObject implements ProductsList{
@@ -15,6 +14,13 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 	}
 
 	@Override
+	public Product getProduct(int sn) throws RemoteException {
+		for(Product p : this.products) {
+			if(p.getSN() == sn) {
+				return p;
+			}
+		}
+		return new ProductImpl();
 	public Set<Product> getProducts() throws RemoteException {
 		return this.products;
 	}
@@ -25,14 +31,6 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 	}
 
 	@Override
-	public Product getProduct(int sn) throws RemoteException {
-		Iterator<Product> it = this.products.iterator();
-		Product tmp = null;
-		for(int i = 0; i <= this.size(); i++) {
-			tmp = it.next();
-			if(tmp.getSN() == sn) {
-				return tmp;
-			}
 		}
 		return tmp;
 	}
