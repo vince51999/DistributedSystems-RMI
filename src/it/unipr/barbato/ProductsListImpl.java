@@ -25,11 +25,14 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 	}
 
 	@Override
-	public Product getProduct(int index) throws RemoteException {
+	public Product getProduct(int sn) throws RemoteException {
 		Iterator<Product> it = this.products.iterator();
 		Product tmp = null;
-		for(int i = 0; i <= index; i++) {
+		for(int i = 0; i <= this.size(); i++) {
 			tmp = it.next();
+			if(tmp.getSN() == sn) {
+				return tmp;
+			}
 		}
 		return tmp;
 	}
