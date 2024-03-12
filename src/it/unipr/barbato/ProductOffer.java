@@ -4,25 +4,22 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface ProductOffer extends Remote{
-
 	/**
-	 * Return offer for product
-	 * @return client offer
-	 * @throws RemoteException
+	 * Set client offer
+	 * @param o Client offer
 	 */
-	int getOffer() throws RemoteException;
+	void setOffer(int o) throws RemoteException;
 	
 	/**
-	 * Return SN of product
-	 * @return serial number of the product
-	 * @throws RemoteException
+	 * Set SN of product that client want
+	 * @param sn Serial number of product
 	 */
-	int getSN() throws RemoteException;
+	void setSN(int sn) throws RemoteException;
 
 	/**
-	 * This method is used to confirm client offer
-	 * @param Server offer response
+	 * Return server offer confirm
+	 * @return Server confirm
 	 * @throws RemoteException
 	 */
-	void setConfirm(Boolean confirmed) throws RemoteException;
+	Boolean getConfirm() throws RemoteException;
 }
