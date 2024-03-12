@@ -2,6 +2,7 @@ package it.unipr.barbato;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class ProductsListImpl extends UnicastRemoteObject implements ProductsList{
@@ -24,8 +25,14 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 	}
 
 	@Override
+	public ArrayList<Integer> getSNs() throws RemoteException {
+		ArrayList<Integer> sns = new ArrayList<>();
+		
+		System.out.println(this.products.size());
+		for(Product p : this.products) {
+			sns.add(p.getSN());
 		}
-		return tmp;
+		return sns;
 	}
 
 
