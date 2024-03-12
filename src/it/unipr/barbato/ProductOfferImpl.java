@@ -57,5 +57,5 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	public int getSN() throws RemoteException {
 		return this.sn;
 	}
-
+	
 }
