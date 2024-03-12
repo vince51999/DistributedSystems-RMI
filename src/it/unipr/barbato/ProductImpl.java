@@ -37,9 +37,7 @@ public class ProductImpl extends UnicastRemoteObject implements Product {
 	 * @param MIN_PRICE Min price for product
 	 */
 	public void setPrice(int MAX_PRICE, int MIN_PRICE) {
-		Random random = new Random();
-		int price = random.nextInt(MAX_PRICE - MIN_PRICE) + MIN_PRICE;
-		this.price = price;
+		this.price = new Random().nextInt(MAX_PRICE - MIN_PRICE) + MIN_PRICE;
 	}
 
 }
