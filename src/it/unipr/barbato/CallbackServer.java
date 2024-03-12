@@ -73,7 +73,7 @@ public class CallbackServer {
 	 */
 	private static Set<Product> productsList(int num_products) throws Exception {
 		Set<Product> products = new CopyOnWriteArraySet<>();
-		for(int i = 0; i < num_product; i++) {
+		for(int i = 0; i < num_products; i++) {
 			ProductImpl product = new ProductImpl();
 			product.setSN(i + 1);
 			product.setPrice(MAX_PRICE, MIN_PRICE);
