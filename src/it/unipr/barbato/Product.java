@@ -3,17 +3,24 @@ package it.unipr.barbato;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Product extends Remote{
+/**
+ * The {@code Product} interface represents a product in a distributed system.
+ * It provides methods to retrieve the price and serial number of the product.
+ */
+public interface Product extends Remote {
 	/**
-	 * Return prize of product
-	 * @return current prize of product
-	 * @throws RemoteException
+	 * Returns the price of the product.
+	 * 
+	 * @return the current price of the product
+	 * @throws RemoteException if a remote communication error occurs
 	 */
 	int getPrice() throws RemoteException;
+
 	/**
-	 * Return SN of product
-	 * @return Serial number of product 
-	 * @throws RemoteException
+	 * Returns the serial number of the product.
+	 * 
+	 * @return the serial number of the product
+	 * @throws RemoteException if a remote communication error occurs
 	 */
 	int getSN() throws RemoteException;
 }
