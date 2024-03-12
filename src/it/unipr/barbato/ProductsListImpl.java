@@ -21,13 +21,6 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 			}
 		}
 		return new ProductImpl();
-	public Set<Product> getProducts() throws RemoteException {
-		return this.products;
-	}
-
-	@Override
-	public int size() throws RemoteException {
-		return this.products.size();
 	}
 
 	@Override
