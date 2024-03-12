@@ -65,7 +65,12 @@ public class CallbackServer {
 			}
 		}
 	}
-	
+	/**
+	 * Create a list of product with price between (MAX_PRICE, MIN_PRICE) and SN between (1, num_product)
+	 * @param num_products number of products
+	 * @return list of products
+	 * @throws Exception
+	 */
 	private static Set<Product> productsList(int num_products) throws Exception {
 		Set<Product> products = new CopyOnWriteArraySet<>();
 		for(int i = 0; i < num_product; i++) {
