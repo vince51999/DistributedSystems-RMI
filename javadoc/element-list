@@ -1,0 +1,4 @@
+module:RMI
+it.unipr.barbato.Controller
+it.unipr.barbato.Model.Impl
+it.unipr.barbato.Model.Interface
