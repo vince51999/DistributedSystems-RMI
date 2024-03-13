@@ -19,7 +19,7 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	private Boolean confirmed;
 
 	/**
-	 * Constructs a new ProductOfferImpl object.
+	 * Constructor of ProductOfferImpl object.
 	 * Initializes confirmed to false, the price and serial number to 0.
 	 *
 	 * @throws RemoteException If there is a problem with the remote object communication.

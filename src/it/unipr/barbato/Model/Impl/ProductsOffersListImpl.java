@@ -19,7 +19,7 @@ public class ProductsOffersListImpl extends UnicastRemoteObject implements Produ
 	private Set<ProductOffer> offers;
 	
 	/**
-	 * Constructor of ProductsOffersListImpl
+	 * Constructor of ProductsOffersListImpl object.
 	 * 
 	 * @param offers List of client offers
 	 * @throws RemoteException If a remote communication error occurs

@@ -19,12 +19,9 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
  * The server starts selling its product only when at least 3 clients have
  * subscribed.
  * It keeps running until all the clients have completed their purchases.
- * The server periodically generated a new random price for the product and it
- * updates it using the reference of its own object (accessible remotely by all
- * the clients).
- * Then it checks if some client has made an offer; in that case it performs a
- * further check, to see if the offer is greater than the current price of the product. 
- * If this condition is satisfied the offer is accepted, otherwise it is rejected.
+ * The server periodically updated the prices of all products in the remote list.
+ * Then it checks, for each client, the offer for a specific SN and confirm the offer if is more high than product price,
+ * otherwise reject client offer.
  * 
  * @author Vincenzo Barbato 345728
  */
@@ -100,11 +97,11 @@ public class CallbackServer {
 	}
 
 	/**
-	 * Create a list of product with price between (MAX_PRICE, MIN_PRICE) and SN
+	 * Create a list of products with prices between (MAX_PRICE, MIN_PRICE) and SN
 	 * between (1, num_product)
 	 * 
-	 * @param num_products number of products
-	 * @return list of products
+	 * @param num_products Number of products
+	 * @return List of products
 	 * @throws Exception
 	 */
 	private static Set<Product> productsList(int num_products) throws Exception {

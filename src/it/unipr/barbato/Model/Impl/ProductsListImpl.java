@@ -20,7 +20,8 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 	private Set<Product> products;
 
 	/**
-	 * Constructs a ProductsListImpl object with the specified set of products.
+	 * Constructor of ProductsListImpl object.
+	 * Initializes the products with the specified set of products.
 	 * 
 	 * @param p The set of products
 	 * @throws RemoteException If a remote communication error occurs

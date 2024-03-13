@@ -14,7 +14,7 @@ public interface Product extends Remote {
 	 * Returns the price of the product.
 	 * 
 	 * @return The current price of the product
-	 * @throws RemoteException if a remote communication error occurs
+	 * @throws RemoteException If a remote communication error occurs
 	 */
 	int getPrice() throws RemoteException;
 
@@ -22,7 +22,7 @@ public interface Product extends Remote {
 	 * Returns the serial number of the product.
 	 * 
 	 * @return The serial number of the product
-	 * @throws RemoteException if a remote communication error occurs
+	 * @throws RemoteException If a remote communication error occurs
 	 */
 	int getSN() throws RemoteException;
 }

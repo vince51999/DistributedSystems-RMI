@@ -4,9 +4,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * The {@code OffersList} interface represents the list of client offers.
- * It provides methods to subscribe and un-subscribe from the 
- * and to confirm the client's offer.
+ * The {@code OffersList} interface represents the list of client offers in a distributed system.
+ * It provides methods to subscribe and un-subscribe from the offers list.
  * 
  * @author Vincenzo Barbato 345728
  */

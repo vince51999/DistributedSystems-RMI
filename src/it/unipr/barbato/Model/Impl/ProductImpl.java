@@ -8,8 +8,7 @@ import it.unipr.barbato.Model.Interface.Product;
 
 /**
  * The {@code ProductImpl} represents an implementation of the Product interface.
- * This class provides methods to get and set the price and serial number of a
- * product.
+ * This class provides methods to get and set the price and serial number of a product.
  * 
  * @author Vincenzo Barbato 345728
  */
@@ -20,7 +19,7 @@ public class ProductImpl extends UnicastRemoteObject implements Product {
 	private int sn;
 
 	/**
-	 * Constructs a new ProductImpl object.
+	 * Constructor of ProductImpl object.
 	 * Initializes the price and serial number to 0.
 	 *
 	 * @throws RemoteException If there is a problem with the remote object communication.
@@ -41,19 +40,19 @@ public class ProductImpl extends UnicastRemoteObject implements Product {
 	}
 
 	/**
-	 * Sets the serial number of the product.
+	 * Local method to set the serial number of the product.
 	 *
-	 * @param sn the serial number of the product.
+	 * @param sn The serial number of the product.
 	 */
 	public void setSN(int sn) {
 		this.sn = sn;
 	}
 
 	/**
-	 * Sets the price of the product.
+	 * Local method to set the price of the product.
 	 *
-	 * @param MAX_PRICE the maximum price for the product.
-	 * @param MIN_PRICE the minimum price for the product.
+	 * @param MAX_PRICE The maximum price for the product.
+	 * @param MIN_PRICE The minimum price for the product.
 	 */
 	public void setPrice(int MAX_PRICE, int MIN_PRICE) {
 		this.price = new Random().nextInt(MAX_PRICE - MIN_PRICE) + MIN_PRICE;

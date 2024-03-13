@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
- * The {@code ProductsList} interface represents a list of products.
+ * The {@code ProductsList} interface represents a list of products in a distributed system.
  * It provides methods to retrieve product information.
  * 
  * @author Vincenzo Barbato 345728

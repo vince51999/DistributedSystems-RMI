@@ -12,20 +12,14 @@ import it.unipr.barbato.Model.Interface.ProductsList;
 import it.unipr.barbato.Model.Interface.ProductsOffersList;
 
 /**
- * The {@code CallbackClient} class represents a client that interacts with a
- * remote server using RMI (Remote Method Invocation).
+ * The {@code CallbackClient} class represents a client that interacts with a remote server using RMI (Remote Method Invocation).
  * It subscribes to the offers list and purchases products from the products list.
- * Each client creates a remote object that will be used by the server
- * to retrieve possible offers for the products.
+ * Each client creates a remote object that will be used by the server to retrieve possible offers for the products.
  * 
- * A client keeps running until it completes a certain number of purchases
- * (10 is default).
+ * The client periodically choose a product SN from the products list;
+ * Generate a random offer between 10 and 200 and wait server response.
  * 
- * The client periodically retrieves the current price of the product and it
- * randomly generates a maximum purchase price; if the product price is less
- * than this value, the client makes an offer to the server. If the client
- * has made an offer it waits until it receives the outcome (either accepted or
- * rejected).
+ * After 10 purchases client logs out of the shop.
  * 
  * @author Vincenzo Barbato 345728
  */
@@ -55,7 +49,7 @@ public class CallbackClient {
 		while (productsCount < PURCHASES) {
 			ArrayList<Integer> sns = productsList.getSNs();
 			
-			// If list of sn is empty client waits
+			// If list of SN is empty client waits
 			if (sns.size() > 0) {
 				int sn = getRandomSN(sns);
 				int offer = getRandomOffer();
@@ -92,12 +86,21 @@ public class CallbackClient {
 		offersList.unsubcribe(myOffer);
 		UnicastRemoteObject.unexportObject(myOffer, false);
 	}
-
+	
+	/**
+	 * Return a random product SN
+	 * @param array ArrayList of products SN
+	 * @return Random product SN
+	 */
 	public static int getRandomSN(ArrayList<Integer> array) {
 		int rnd = new Random().nextInt(array.size());
 		return array.get(rnd);
 	}
 
+	/**
+	 * Return a random offer for a product
+	 * @return Random offer between MIN_PRICE and MAX_PRICE
+	 */
 	public static int getRandomOffer() {
 		return new Random().nextInt(MAX_PRICE - MIN_PRICE) + MIN_PRICE;
 	}

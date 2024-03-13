@@ -4,9 +4,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * The {@code ProductOffer} interface represents an offer for a product.
- * It provides methods to retrieve the offer, the serial number of the product,
- * and to confirm the client's offer.
+ * The {@code ProductOffer} interface represents an offer for a product in a distributed system.
+ * It provides methods to retrieve the offer, the serial number of the product, and to confirm the client's offer.
  * 
  * @author Vincenzo Barbato 345728
  */
@@ -24,7 +23,7 @@ public interface ProductOffer extends Remote {
 	 * Returns the serial number of the product.
 	 * 
 	 * @return The serial number of the product
-	 * @throws RemoteException if a remote communication error occurs
+	 * @throws RemoteException If a remote communication error occurs
 	 */
 	int getSN() throws RemoteException;
 
