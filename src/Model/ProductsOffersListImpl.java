@@ -1,16 +1,24 @@
-package it.unipr.barbato;
+package Model;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Set;
 
-public class BuyersListImpl extends UnicastRemoteObject implements BuyersList {
+import Interface.ProductOffer;
+import Interface.ProductsOffersList;
 
+public class ProductsOffersListImpl extends UnicastRemoteObject implements ProductsOffersList {
+	
 	private static final long serialVersionUID = 1L;
 	private Set<ProductOffer> offers;
 	
-	protected BuyersListImpl(Set<ProductOffer> o) throws RemoteException {
-		this.offers = o;
+	/**
+	 * Constructor of BuyersListImpl
+	 * @param offers List of client offers
+	 * @throws RemoteException
+	 */
+	public ProductsOffersListImpl(Set<ProductOffer> offers) throws RemoteException {
+		this.offers = offers;
 	}
 
 	@Override

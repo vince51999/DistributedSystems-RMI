@@ -1,10 +1,18 @@
-package it.unipr.barbato;
+package controller;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
+
+import Interface.Product;
+import Interface.ProductOffer;
+import Interface.ProductsList;
+import Interface.ProductsOffersList;
+import Model.ProductImpl;
+import Model.ProductsListImpl;
+import Model.ProductsOffersListImpl;
 
 /**
  * The {@code CallbackServer} class defines the behavior of the server.
@@ -21,8 +29,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * to see if the offer is greater than the current price of the product. If this
  * condition is
  * satisfied the offer is accepted, otherwise it is rejected.
- * 
- *
  */
 public class CallbackServer {
 	private static final int PORT = 1099;
@@ -37,19 +43,23 @@ public class CallbackServer {
 
 		Registry registry = LocateRegistry.createRegistry(PORT);
 		
-		Set<Product> products = productsList(3 * 20);
+		// Create list of products
+		Set<Product> products = productsList(3 * 10);
 		ProductsList productsList = new ProductsListImpl(products);
 		registry.rebind("productsList", productsList);
 
+		// Create list of clients offers
 		Set<ProductOffer> offers = new CopyOnWriteArraySet<>();
-		BuyersList offersList = new BuyersListImpl(offers);
-		registry.rebind("offersList", offersList); // publishes a remote reference to that object with external name
-													// "subscribe"
-		while (offers.size() < MIN_CLIENTS) { // the server starts when at least 3 clients are subscribed
+		ProductsOffersList offersList = new ProductsOffersListImpl(offers);
+		registry.rebind("offersList", offersList);
+		
+		// Wait clients
+		while (offers.size() < MIN_CLIENTS) {
 			System.out.println("Wait clients: " + offers.size() + "/" + MIN_CLIENTS);
 			Thread.sleep(2000);
 		}
 
+		// There are clients that want buy
 		while (offers.size() > 0) {
 			for (Product product : products) {
 				((ProductImpl) product).setPrice(MAX_PRICE, MIN_PRICE);
@@ -58,6 +68,7 @@ public class CallbackServer {
 			}
 			try {
 				Thread.sleep(2000);
+				// For each client check offer
 				for (ProductOffer offer : offers) {
 					int sn = offer.getSN();
 					int o = offer.getOffer();

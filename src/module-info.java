@@ -10,5 +10,7 @@
 module RMI {
 	requires java.rmi;
 
-	exports it.unipr.barbato to java.rmi;
+	exports controller to java.rmi;
+	exports Model to java.rmi;
+	exports Interface to java.rmi;
 }

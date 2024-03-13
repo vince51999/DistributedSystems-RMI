@@ -1,7 +1,9 @@
-package it.unipr.barbato;
+package Model;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+
+import Interface.ProductOffer;
 
 /**
  * The {@code ProductOfferImpl} represents an implementation of the ProductOffer
@@ -16,7 +18,7 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	private int offer;
 	private Boolean confirmed;
 
-	protected ProductOfferImpl() throws RemoteException {
+	public ProductOfferImpl() throws RemoteException {
 		this.sn = 0;
 		this.offer = 0;
 		this.confirmed = null;

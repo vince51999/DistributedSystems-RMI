@@ -1,8 +1,10 @@
-package it.unipr.barbato;
+package Model;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Random;
+
+import Interface.Product;
 
 /**
  * The {@code ProductImpl} represents an implementation of the Product

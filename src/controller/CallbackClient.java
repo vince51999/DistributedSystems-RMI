@@ -1,10 +1,15 @@
-package it.unipr.barbato;
+package controller;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Random;
+
+import Interface.ProductOffer;
+import Interface.ProductsList;
+import Interface.ProductsOffersList;
+import Model.ProductOfferImpl;
 
 /**
  * The {@code CallbackClient} class represents a client that interacts with a
@@ -33,51 +38,51 @@ public class CallbackClient {
 	public static void main(String[] args) throws Exception {
 		Registry registry = LocateRegistry.getRegistry();
 
-		ProductOffer offer = new ProductOfferImpl();
+		ProductOffer myOffer = new ProductOfferImpl();
 
 		ProductsList productsList = (ProductsList) registry.lookup("productsList");
 
-		BuyersList offersList = (BuyersList) registry.lookup("offersList");
-		offersList.subscribe(offer);
+		ProductsOffersList offersList = (ProductsOffersList) registry.lookup("offersList");
+		offersList.subscribe(myOffer);
 
 		int productsCount = 0;
 		while (productsCount < PURCHASES) {
 			ArrayList<Integer> sns = productsList.getSNs();
 			if (sns.size() > 0) {
 				int sn = getRandomSN(sns);
-				int o = getRandomOffer();
+				int offer = getRandomOffer();
 				int price = productsList.getProduct(sn).getPrice();
-				((ProductOfferImpl) offer).setSN(sn);
-				((ProductOfferImpl) offer).setOffer(o);
+				((ProductOfferImpl) myOffer).setSN(sn);
+				((ProductOfferImpl) myOffer).setOffer(offer);
 				System.out.println("-------------------------");
-				System.out.println("SN: " + sn + " Price: " + price + " Offer: " + o);
+				System.out.println("SN: " + sn + " Price: " + price + " Offer: " + offer);
 
 				Boolean confirm = null;
 				while (confirm == null) {
 					Thread.sleep(1000);
-					confirm = ((ProductOfferImpl) offer).getConfirm();
+					confirm = ((ProductOfferImpl) myOffer).getConfirm();
 				}
 				System.out.println("-------------------------");
 				if (confirm) {
 					productsCount++;
 					System.out.println("Server has accepted offer! Product with sn: " + sn
-							+ " has been bought at price: " + o + "$");
+							+ " has been bought at price: " + offer + "$");
 				} else {
 					System.out.println(
-							"Server has rejected the offered price: " + o + "$ " + " for product with sn: " + sn);
+							"Server has rejected the offered price: " + offer + "$ " + " for product with sn: " + sn);
 				}
 
-				offer.setConfirm(null);
-				((ProductOfferImpl) offer).setOffer(0);
-				((ProductOfferImpl) offer).setSN(0);
+				myOffer.setConfirm(null);
+				((ProductOfferImpl) myOffer).setOffer(0);
+				((ProductOfferImpl) myOffer).setSN(0);
 			}
 			System.out.println(productsCount + "/" + PURCHASES);
 			Thread.sleep(2000);
 
 		}
 		System.out.println("Leave the shop.");
-		offersList.unsubcribe(offer);
-		UnicastRemoteObject.unexportObject(offer, false);
+		offersList.unsubcribe(myOffer);
+		UnicastRemoteObject.unexportObject(myOffer, false);
 	}
 
 	public static int getRandomSN(ArrayList<Integer> array) {

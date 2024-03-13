@@ -1,9 +1,12 @@
-package it.unipr.barbato;
+package Model;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Set;
+
+import Interface.Product;
+import Interface.ProductsList;
 
 /**
  * The {@code ProductsListImpl} is an implementation class for the ProductsList
