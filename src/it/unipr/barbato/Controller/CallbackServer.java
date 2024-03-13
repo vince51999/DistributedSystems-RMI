@@ -15,7 +15,7 @@ import it.unipr.barbato.Model.Interface.ProductsList;
 import it.unipr.barbato.Model.Interface.ProductsOffersList;
 
 /**
- * The {@code CallbackServer} class defines the behavior of the server.
+ * The {@code CallbackServer} class defines the behavior of the remote server.
  * The server starts selling its product only when at least 3 clients have
  * subscribed.
  * It keeps running until all the clients have completed their purchases.
@@ -26,18 +26,34 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
  * @author Vincenzo Barbato 345728
  */
 public class CallbackServer {
+	/**
+	 * Port for distributed application
+	 */
 	private static final int PORT = 1099;
+	/**
+	 * Min price for product
+	 */
 	private static final int MIN_PRICE = 10;
+	/**
+	 * Max price for product
+	 */
 	private static final int MAX_PRICE = 200;
+	
+	/**
+	 * Min number of clients to open the shop
+	 */
 	private static final int MIN_CLIENTS = 3;
 
+	/**
+	 * Constructor of CallbackServer
+	 */
 	public CallbackServer() {
 	}
 
 	/**
 	 * Runnable method to run server
-	 * @param args
-	 * @throws Exception
+	 * @param args Arguments for main method
+	 * @throws Exception If there is a problem
 	 */
 	public static void main(String[] args) throws Exception {
 
@@ -102,7 +118,7 @@ public class CallbackServer {
 	 * 
 	 * @param num_products Number of products
 	 * @return List of products
-	 * @throws Exception
+	 * @throws Exception If there is a problem
 	 */
 	private static Set<Product> productsList(int num_products) throws Exception {
 		Set<Product> products = new CopyOnWriteArraySet<>();

@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
 public interface ProductOffer extends Remote {
 
 	/**
-	 * Returns the offer for the product.
+	 * Returns the offer for the product
 	 * 
 	 * @return The client's offer
 	 * @throws RemoteException If a remote communication error occurs
@@ -20,7 +20,7 @@ public interface ProductOffer extends Remote {
 	int getOffer() throws RemoteException;
 
 	/**
-	 * Returns the serial number of the product.
+	 * Returns the serial number of the product
 	 * 
 	 * @return The serial number of the product
 	 * @throws RemoteException If a remote communication error occurs
@@ -28,7 +28,7 @@ public interface ProductOffer extends Remote {
 	int getSN() throws RemoteException;
 
 	/**
-	 * Confirms the client's offer.
+	 * Confirms the client's offer
 	 * 
 	 * @param confirmed The server's offer response
 	 * @throws RemoteException If a remote communication error occurs

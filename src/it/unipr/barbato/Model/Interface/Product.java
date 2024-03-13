@@ -11,7 +11,7 @@ import java.rmi.RemoteException;
  */
 public interface Product extends Remote {
 	/**
-	 * Returns the price of the product.
+	 * Returns the price of the product
 	 * 
 	 * @return The current price of the product
 	 * @throws RemoteException If a remote communication error occurs
@@ -19,7 +19,7 @@ public interface Product extends Remote {
 	int getPrice() throws RemoteException;
 
 	/**
-	 * Returns the serial number of the product.
+	 * Returns the serial number of the product
 	 * 
 	 * @return The serial number of the product
 	 * @throws RemoteException If a remote communication error occurs

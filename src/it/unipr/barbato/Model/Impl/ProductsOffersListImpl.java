@@ -15,11 +15,18 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
  */
 public class ProductsOffersListImpl extends UnicastRemoteObject implements ProductsOffersList {
 	
+	/**
+	 * serialVersionUID
+	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * List of client's offers
+	 */
 	private Set<ProductOffer> offers;
 	
 	/**
-	 * Constructor of ProductsOffersListImpl object.
+	 * Constructor of ProductsOffersListImpl object
 	 * 
 	 * @param offers List of client offers
 	 * @throws RemoteException If a remote communication error occurs

@@ -24,14 +24,29 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
  * @author Vincenzo Barbato 345728
  */
 public class CallbackClient {
+	/**
+	 * Min price for product
+	 */
 	private static final int MIN_PRICE = 10;
+	/**
+	 * Max price for product
+	 */
 	private static final int MAX_PRICE = 200;
+	/**
+	 * Number of purchases that client do before logout from the shop
+	 */
 	private static final int PURCHASES = 10;
 
 	/**
+	 * Constructor of CallbackClient
+	 */
+	public CallbackClient() {
+	}
+	
+	/**
 	 * Runnable method to run client
-	 * @param args
-	 * @throws Exception
+	 * @param args Arguments for main method
+	 * @throws Exception If there is a problem
 	 */
 	public static void main(String[] args) throws Exception {
 		Registry registry = LocateRegistry.getRegistry();

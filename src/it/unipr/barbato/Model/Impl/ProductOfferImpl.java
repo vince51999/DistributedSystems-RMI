@@ -13,16 +13,30 @@ import it.unipr.barbato.Model.Interface.ProductOffer;
  */
 public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffer {
 
+	/**
+	 * serialVersionUID
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Product serial number
+	 */
 	private int sn;
+	
+	/**
+	 * Client offer for a product
+	 */
 	private int offer;
+	
+	/**
+	 * Server response to client offer
+	 */
 	private Boolean confirmed;
 
 	/**
-	 * Constructor of ProductOfferImpl object.
-	 * Initializes confirmed to false, the price and serial number to 0.
+	 * Constructor of ProductOfferImpl object
+	 * Initializes confirmed to false, the price and serial number to 0
 	 *
-	 * @throws RemoteException If there is a problem with the remote object communication.
+	 * @throws RemoteException If there is a problem with the remote object communication
 	 */
 	public ProductOfferImpl() throws RemoteException {
 		this.sn = 0;
@@ -31,7 +45,7 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	}
 
 	/**
-	 * Local method to set the offer made by the client.
+	 * Local method to set the offer made by the client
 	 * 
 	 * @param offer The client's offer
 	 */
@@ -40,7 +54,7 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	}
 
 	/**
-	 * Local method to set the serial number of the product that the client wants.
+	 * Local method to set the serial number of the product that the client wants
 	 * 
 	 * @param sn The serial number of the product
 	 */
@@ -49,7 +63,7 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	}
 
 	/**
-	 * Local method to get the confirmation status of the offer.
+	 * Local method to get the confirmation status of the offer
 	 * 
 	 * @return True if the offer is confirmed, false otherwise
 	 */

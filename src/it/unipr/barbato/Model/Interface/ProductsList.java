@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public interface ProductsList extends Remote {
 
 	/**
-	 * Returns the product with the specified serial number.
+	 * Returns the product with the specified serial number
 	 * 
 	 * @param sn The serial number of the product
 	 * @return The product with the specified serial number
@@ -22,7 +22,7 @@ public interface ProductsList extends Remote {
 	Product getProduct(int sn) throws RemoteException;
 
 	/**
-	 * Returns a list of all possible product serial numbers.
+	 * Returns a list of all possible product serial numbers
 	 * 
 	 * @return A list of all possible product serial numbers
 	 * @throws RemoteException If a remote communication error occurs
