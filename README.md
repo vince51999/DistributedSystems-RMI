@@ -1,6 +1,7 @@
 ﻿# DistributedSystems-RMI
 
  To run the application open a terminal and run the command:
+{% include "/intro_to_command_line/open_instructions.md" %}
 {% filename %}riga di comando  java -jar main.jar {% endfilename %}
 
 This will execute the server and 3 clients as different threads
