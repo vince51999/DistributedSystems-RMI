@@ -6,10 +6,10 @@ import java.rmi.server.UnicastRemoteObject;
 import it.unipr.barbato.Model.Interface.ProductOffer;
 
 /**
- * The {@code ProductOfferImpl} represents an implementation of the ProductOffer
- * interface.
- * This class provides methods to set and retrieve information about a product
- * offer.
+ * The {@code ProductOfferImpl} represents an implementation of the ProductOffer interface.
+ * This class provides methods to set and retrieve information about a product offer.
+ * 
+ * @author Vincenzo Barbato 345728
  */
 public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffer {
 
@@ -18,6 +18,12 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	private int offer;
 	private Boolean confirmed;
 
+	/**
+	 * Constructs a new ProductOfferImpl object.
+	 * Initializes confirmed to false, the price and serial number to 0.
+	 *
+	 * @throws RemoteException If there is a problem with the remote object communication.
+	 */
 	public ProductOfferImpl() throws RemoteException {
 		this.sn = 0;
 		this.offer = 0;
@@ -27,10 +33,10 @@ public class ProductOfferImpl extends UnicastRemoteObject implements ProductOffe
 	/**
 	 * Local method to set the offer made by the client.
 	 * 
-	 * @param o The client's offer
+	 * @param offer The client's offer
 	 */
-	public void setOffer(int o) {
-		this.offer = o;
+	public void setOffer(int offer) {
+		this.offer = offer;
 	}
 
 	/**

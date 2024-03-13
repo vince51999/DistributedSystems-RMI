@@ -7,15 +7,22 @@ import java.util.Set;
 import it.unipr.barbato.Model.Interface.ProductOffer;
 import it.unipr.barbato.Model.Interface.ProductsOffersList;
 
+/**
+ * The {@code ProductsOffersListImpl} is an implementation class for the ProductsOffersList interface.
+ * This class provides methods to initialize the list of clients offers and subscribe/un-subscribe to it.
+ * 
+ * @author Vincenzo Barbato 345728
+ */
 public class ProductsOffersListImpl extends UnicastRemoteObject implements ProductsOffersList {
 	
 	private static final long serialVersionUID = 1L;
 	private Set<ProductOffer> offers;
 	
 	/**
-	 * Constructor of BuyersListImpl
+	 * Constructor of ProductsOffersListImpl
+	 * 
 	 * @param offers List of client offers
-	 * @throws RemoteException
+	 * @throws RemoteException If a remote communication error occurs
 	 */
 	public ProductsOffersListImpl(Set<ProductOffer> offers) throws RemoteException {
 		this.offers = offers;

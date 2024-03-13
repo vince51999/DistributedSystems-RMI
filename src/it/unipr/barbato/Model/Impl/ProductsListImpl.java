@@ -9,9 +9,10 @@ import it.unipr.barbato.Model.Interface.Product;
 import it.unipr.barbato.Model.Interface.ProductsList;
 
 /**
- * The {@code ProductsListImpl} is an implementation class for the ProductsList
- * interface.
+ * The {@code ProductsListImpl} is an implementation class for the ProductsList interface.
  * This class provides methods to retrieve products and their serial numbers.
+ * 
+ * @author Vincenzo Barbato 345728
  */
 public class ProductsListImpl extends UnicastRemoteObject implements ProductsList {
 
@@ -21,21 +22,13 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 	/**
 	 * Constructs a ProductsListImpl object with the specified set of products.
 	 * 
-	 * @param p the set of products
-	 * @throws RemoteException if a remote communication error occurs
+	 * @param p The set of products
+	 * @throws RemoteException If a remote communication error occurs
 	 */
 	public ProductsListImpl(final Set<Product> p) throws RemoteException {
 		this.products = p;
 	}
 
-	/**
-	 * Retrieves the product with the specified serial number.
-	 * 
-	 * @param sn the serial number of the product
-	 * @return the product with the specified serial number, or a new ProductImpl
-	 *         object if no product is found
-	 * @throws RemoteException if a remote communication error occurs
-	 */
 	@Override
 	public Product getProduct(int sn) throws RemoteException {
 		for (Product p : this.products) {
@@ -46,17 +39,10 @@ public class ProductsListImpl extends UnicastRemoteObject implements ProductsLis
 		return new ProductImpl();
 	}
 
-	/**
-	 * Retrieves the list of serial numbers of all products.
-	 * 
-	 * @return the list of serial numbers of all products
-	 * @throws RemoteException if a remote communication error occurs
-	 */
 	@Override
 	public ArrayList<Integer> getSNs() throws RemoteException {
 		ArrayList<Integer> sns = new ArrayList<>();
 
-		System.out.println(this.products.size());
 		for (Product p : this.products) {
 			sns.add(p.getSN());
 		}

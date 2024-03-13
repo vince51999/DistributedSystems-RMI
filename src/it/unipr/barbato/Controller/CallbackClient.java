@@ -14,8 +14,7 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
 /**
  * The {@code CallbackClient} class represents a client that interacts with a
  * remote server using RMI (Remote Method Invocation).
- * It subscribes to the offers list and purchases products from the products
- * list.
+ * It subscribes to the offers list and purchases products from the products list.
  * Each client creates a remote object that will be used by the server
  * to retrieve possible offers for the products.
  * 
@@ -28,13 +27,18 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
  * has made an offer it waits until it receives the outcome (either accepted or
  * rejected).
  * 
- *
+ * @author Vincenzo Barbato 345728
  */
 public class CallbackClient {
 	private static final int MIN_PRICE = 10;
 	private static final int MAX_PRICE = 200;
 	private static final int PURCHASES = 10;
 
+	/**
+	 * Runnable method to run client
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		Registry registry = LocateRegistry.getRegistry();
 
@@ -46,8 +50,12 @@ public class CallbackClient {
 		offersList.subscribe(myOffer);
 
 		int productsCount = 0;
+		
+		// Client didn't end to purchases
 		while (productsCount < PURCHASES) {
 			ArrayList<Integer> sns = productsList.getSNs();
+			
+			// If list of sn is empty client waits
 			if (sns.size() > 0) {
 				int sn = getRandomSN(sns);
 				int offer = getRandomOffer();

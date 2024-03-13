@@ -18,17 +18,15 @@ import it.unipr.barbato.Model.Interface.ProductsOffersList;
  * The {@code CallbackServer} class defines the behavior of the server.
  * The server starts selling its product only when at least 3 clients have
  * subscribed.
- * 
  * It keeps running until all the clients have completed their purchases.
- * 
  * The server periodically generated a new random price for the product and it
  * updates it using the reference of its own object (accessible remotely by all
  * the clients).
  * Then it checks if some client has made an offer; in that case it performs a
- * further check,
- * to see if the offer is greater than the current price of the product. If this
- * condition is
- * satisfied the offer is accepted, otherwise it is rejected.
+ * further check, to see if the offer is greater than the current price of the product. 
+ * If this condition is satisfied the offer is accepted, otherwise it is rejected.
+ * 
+ * @author Vincenzo Barbato 345728
  */
 public class CallbackServer {
 	private static final int PORT = 1099;
@@ -39,6 +37,11 @@ public class CallbackServer {
 	public CallbackServer() {
 	}
 
+	/**
+	 * Runnable method to run server
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 
 		Registry registry = LocateRegistry.createRegistry(PORT);

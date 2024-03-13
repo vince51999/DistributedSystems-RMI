@@ -1,11 +1,11 @@
 /**
  * The RMI module provides support for Remote Method Invocation (RMI) in Java.
  * RMI allows objects in a Java Virtual Machine (JVM) to invoke methods on
- * objects
- * in another JVM, even if those objects are located on a different machine.
+ * objects in another JVM, even if those objects are located on a different machine.
  * This module requires the java.rmi module and exports the it.unipr.barbato
- * package
- * to the java.rmi module.
+ * package to the java.rmi module.
+ * 
+ * @author Vincenzo Barbato 345728
  */
 module RMI {
 	requires java.rmi;

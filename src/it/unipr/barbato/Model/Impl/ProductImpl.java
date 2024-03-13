@@ -7,10 +7,11 @@ import java.util.Random;
 import it.unipr.barbato.Model.Interface.Product;
 
 /**
- * The {@code ProductImpl} represents an implementation of the Product
- * interface.
+ * The {@code ProductImpl} represents an implementation of the Product interface.
  * This class provides methods to get and set the price and serial number of a
  * product.
+ * 
+ * @author Vincenzo Barbato 345728
  */
 public class ProductImpl extends UnicastRemoteObject implements Product {
 
@@ -22,33 +23,18 @@ public class ProductImpl extends UnicastRemoteObject implements Product {
 	 * Constructs a new ProductImpl object.
 	 * Initializes the price and serial number to 0.
 	 *
-	 * @throws RemoteException if there is a problem with the remote object
-	 *                         communication.
+	 * @throws RemoteException If there is a problem with the remote object communication.
 	 */
 	public ProductImpl() throws RemoteException {
 		this.price = 0;
 		this.sn = 0;
 	}
 
-	/**
-	 * Returns the price of the product.
-	 *
-	 * @return the price of the product.
-	 * @throws RemoteException if there is a problem with the remote object
-	 *                         communication.
-	 */
 	@Override
 	public int getPrice() throws RemoteException {
 		return this.price;
 	}
 
-	/**
-	 * Returns the serial number of the product.
-	 *
-	 * @return the serial number of the product.
-	 * @throws RemoteException if there is a problem with the remote object
-	 *                         communication.
-	 */
 	@Override
 	public int getSN() throws RemoteException {
 		return this.sn;
