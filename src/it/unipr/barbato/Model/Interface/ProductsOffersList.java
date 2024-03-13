@@ -1,4 +1,4 @@
-package Interface;
+package it.unipr.barbato.Model.Interface;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

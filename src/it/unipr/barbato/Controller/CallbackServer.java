@@ -1,4 +1,4 @@
-package controller;
+package it.unipr.barbato.Controller;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -6,13 +6,13 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import Interface.Product;
-import Interface.ProductOffer;
-import Interface.ProductsList;
-import Interface.ProductsOffersList;
-import Model.ProductImpl;
-import Model.ProductsListImpl;
-import Model.ProductsOffersListImpl;
+import it.unipr.barbato.Model.Impl.ProductImpl;
+import it.unipr.barbato.Model.Impl.ProductsListImpl;
+import it.unipr.barbato.Model.Impl.ProductsOffersListImpl;
+import it.unipr.barbato.Model.Interface.Product;
+import it.unipr.barbato.Model.Interface.ProductOffer;
+import it.unipr.barbato.Model.Interface.ProductsList;
+import it.unipr.barbato.Model.Interface.ProductsOffersList;
 
 /**
  * The {@code CallbackServer} class defines the behavior of the server.

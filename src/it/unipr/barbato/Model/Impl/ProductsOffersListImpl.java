@@ -1,11 +1,11 @@
-package Model;
+package it.unipr.barbato.Model.Impl;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Set;
 
-import Interface.ProductOffer;
-import Interface.ProductsOffersList;
+import it.unipr.barbato.Model.Interface.ProductOffer;
+import it.unipr.barbato.Model.Interface.ProductsOffersList;
 
 public class ProductsOffersListImpl extends UnicastRemoteObject implements ProductsOffersList {
 	

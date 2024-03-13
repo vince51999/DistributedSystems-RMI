@@ -1,4 +1,4 @@
-package controller;
+package it.unipr.barbato.Controller;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -6,10 +6,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Random;
 
-import Interface.ProductOffer;
-import Interface.ProductsList;
-import Interface.ProductsOffersList;
-import Model.ProductOfferImpl;
+import it.unipr.barbato.Model.Impl.ProductOfferImpl;
+import it.unipr.barbato.Model.Interface.ProductOffer;
+import it.unipr.barbato.Model.Interface.ProductsList;
+import it.unipr.barbato.Model.Interface.ProductsOffersList;
 
 /**
  * The {@code CallbackClient} class represents a client that interacts with a

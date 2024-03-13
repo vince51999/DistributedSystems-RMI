@@ -1,9 +1,9 @@
-package Model;
+package it.unipr.barbato.Model.Impl;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import Interface.ProductOffer;
+import it.unipr.barbato.Model.Interface.ProductOffer;
 
 /**
  * The {@code ProductOfferImpl} represents an implementation of the ProductOffer
