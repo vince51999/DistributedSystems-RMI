@@ -45,12 +45,6 @@ public class CallbackServer {
 	private static final int MIN_CLIENTS = 3;
 
 	/**
-	 * Constructor of CallbackServer
-	 */
-	public CallbackServer() {
-	}
-
-	/**
 	 * Runnable method to run server
 	 * @param args Arguments for main method
 	 * @throws Exception If there is a problem

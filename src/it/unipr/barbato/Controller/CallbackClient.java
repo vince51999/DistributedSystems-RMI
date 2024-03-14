@@ -36,12 +36,6 @@ public class CallbackClient {
 	 * Number of purchases that client do before logout from the shop
 	 */
 	private static final int PURCHASES = 10;
-
-	/**
-	 * Constructor of CallbackClient
-	 */
-	public CallbackClient() {
-	}
 	
 	/**
 	 * Runnable method to run client
